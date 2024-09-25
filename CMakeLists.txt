@@ -1,4 +1,10 @@
 set(LIBC_INSTALL_HEADERS ON)
 set(LIBCXX_INSTALL_HEADERS ON)
+
+if (NOT COMMAND add_circuit_no_stdlib)
+    if (DEFINED PATH_TO_CIRCUIT_FUNCTION)
+    include(${PATH_TO_CIRCUIT_FUNCTION})
+    endif()
+endif()
 add_subdirectory(libc)
 add_subdirectory(libcpp)
